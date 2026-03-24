@@ -17,7 +17,7 @@ BookRoute.get("/", (req, res) => {
     }) 
 })
 
-BookRoute.post("/books", (req, res) => {
+BookRoute.post("/", (req, res) => {
     const q = "INSERT INTO books (`title`, `description`, `cover`) VALUES (?)"
     
     const { title, description, cover } = req.body
