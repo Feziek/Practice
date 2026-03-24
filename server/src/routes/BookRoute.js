@@ -18,11 +18,11 @@ BookRoute.get("/", (req, res) => {
 })
 
 BookRoute.post("/", (req, res) => {
-    const q = "INSERT INTO books (`title`, `description`, `cover`) VALUES (?)"
+    const q = "INSERT INTO books (`title`, `description`, `cover`, `price`) VALUES (?)"
     
-    const { title, description, cover } = req.body
+    const { title, description, cover, price } = req.body
    
-    const values = [ title, description, cover ]
+    const values = [ title, description, cover, price ]
      
     pool.query(q, [ values ], (err, data) => {
         if (err) {
