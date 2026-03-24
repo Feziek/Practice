@@ -13,3 +13,6 @@ CREATE TABLE books (
 
 ALTER TABLE books
 ADD COLUMN price INT NOT NULL;
+
+-- DELETE FROM books 
+-- WHERE id BETWEEN 2 AND 10;
