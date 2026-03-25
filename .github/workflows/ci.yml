@@ -1,0 +1,42 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'  
+
+      - name: Install npm
+        run: |
+          npm install 
+          echo "$(npm bin --global)" >> $GITHUB_PATH  
+
+      - name: Verify Node.js and npm installation
+        run: |
+          node -v  
+          npm --version  
+
+      - name: Install dependencies using bun
+        run: |
+          cd client
+          npm install --no-frozen-lockfile
+
+      - name: Build Packages
+        run: |
+          cd client
+          npm run build
