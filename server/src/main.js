@@ -4,6 +4,8 @@ import cors from "cors"
 
 import BookRoute from "./routes/BookRoute.js"
 
+import { network } from "./utils/constants.js"
+
 dotenv.config()
 
 const app = express()
@@ -22,12 +24,12 @@ app.get("/", (req, res) => {
 app.use("/api/books", BookRoute)
 
 app.use((req, res) => {
-    res.status(404).json({ message: "Route not found" })
+    res.status(network.NOT_FOUND).json({ message: "Route not found" })
 })
 
 app.use((err, req, res, next) => {
     console.error("GLOBAL ERROR:", err)
-    res.status(500).json({ message: "Something went wrong" })
+    res.status(network.INTERNAL_SERVER_ERROR).json({ message: "Something went wrong" })
 })
 
 const PORT = process.env.PORT || 8000
