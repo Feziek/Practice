@@ -41,8 +41,8 @@ export const Update = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h1 className="text-2xl font-extrabold text-gray-800 mb-6 text-center">
           Update the Book
         </h1>
 
@@ -52,7 +52,7 @@ export const Update = () => {
             placeholder="Book title"
             name="title"
             onChange={ handleChange }
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-400 transition"
           />
 
           <textarea
@@ -60,7 +60,7 @@ export const Update = () => {
             placeholder="Book description"
             name="description"
             onChange={ handleChange }
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none transition"
           />
 
           <input
@@ -68,7 +68,7 @@ export const Update = () => {
             placeholder="Book price"
             name="price"
             onChange={ handleChange }
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-400 transition"
           />
 
           <input
@@ -76,25 +76,25 @@ export const Update = () => {
             placeholder="Book cover URL"
             name="cover"
             onChange={ handleChange }
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-400 transition"
           />
 
           <button
             onClick={ handleClick }
-            className="bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200"
+            className="bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-black hover:scale-[1.02] transition duration-200"
           >
             Update
           </button>
 
           {error && (
             <p className="text-red-500 text-sm text-center">
-              Something went wrong!
+              Something went wrong. Please check all required fields and try again.
             </p>
           )}
 
           <Link
             to="/"
-            className="text-center text-blue-600 hover:underline text-sm"
+            className="text-center text-gray-600 hover:text-gray-900 hover:underline text-sm transition"
           >
             See all books
           </Link>

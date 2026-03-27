@@ -27,37 +27,38 @@ export const Books = () => {
       console.log(err)
     }
   }
+  
   return(
     <div className="min-h-screen bg-gray-100 px-6 py-10">
-      
-      
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
+      <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-10">
         Books Store
       </h1>
 
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-10">
         <Link
           to="/add"
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-700 transition"
+          className="bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-black hover:scale-105 transition"
         >
-          + Add New Book
+          + Add Book
         </Link>
       </div>
 
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {books.map((book) => (
+        { books.map((book) => (
           <div
             key={ book.id }
-            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+            className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden"
           >
-            <img
-              src={ book.cover }
-              alt={ book.title }
-              className="w-full h-56 object-cover"
-            />
+            <div className="w-full h-56 overflow-hidden">
+              <img
+                src={ book.cover }
+                alt={ book.title }
+                className="w-full h-full object-cover transform hover:scale-110 transition duration-500"
+              />
+            </div>
 
-            <div className="p-4 flex flex-col gap-2">
-              <h2 className="text-lg font-bold text-gray-800">
+            <div className="p-5 flex flex-col gap-3">
+              <h2 className="text-lg font-bold text-gray-800 line-clamp-1">
                 { book.title }
               </h2>
 
@@ -65,21 +66,21 @@ export const Books = () => {
                 { book.description }
               </p>
 
-              <span className="text-blue-600 font-semibold text-lg">
+              <span className="text-gray-900 font-bold text-xl">
                 ₱ { book.price }
               </span>
 
-              <div className="flex gap-2 mt-4">
+              <div className="flex gap-3 mt-4">
                 <button
                   onClick={() => handleDelete(book.id)}
-                  className="flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
+                  className="flex-1 bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition"
                 >
                   Delete
                 </button>
 
                 <Link
                   to={`/update/${ book.id }`}
-                  className="flex-1 text-center bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-900 transition"
+                  className="flex-1 text-center bg-gray-800 text-white p-3 rounded-lg hover:bg-black transition"
                 >
                   Update
                 </Link>
