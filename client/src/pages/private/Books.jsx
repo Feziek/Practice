@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 
 import axios from "axios"
 
+import { Chatbot } from "@components/Bot/Chatbot"
+
 export const Books = () => {
   const [ books, setBooks ] = useState([])
 
@@ -89,6 +91,7 @@ export const Books = () => {
           </div>
         ))}
       </div>
+      <Chatbot />
     </div>
   )
 }
