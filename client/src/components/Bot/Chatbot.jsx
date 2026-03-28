@@ -44,7 +44,7 @@ export function Chatbot() {
     <div className="fixed bottom-6 right-6 z-50">
       <div
         className={`w-80 bg-white shadow-2xl rounded-2xl overflow-hidden transition-all duration-300 ${
-          open ? "h-[500px]" : "h-14"
+          open ? "h-125" : "h-14"
         }`}
       >
         <div className="bg-gray-800 text-white px-4 py-1 flex items-center justify-between rounded-t-2xl">
@@ -64,7 +64,7 @@ export function Chatbot() {
 
         {open && (
           <>
-            <div className="p-4 flex flex-col gap-3 h-[350px] overflow-y-auto bg-gray-100">
+            <div className="p-4 flex flex-col gap-3 h-87.5 overflow-y-auto bg-gray-100">
               {messages.map((msg, index) =>
                 msg.type === "bot" ? (
                     <div 
