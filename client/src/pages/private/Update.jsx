@@ -2,6 +2,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import { useState } from "react"
 
+import { Chatbot } from "@components/Bot/Chatbot"
+
 import axios from "axios"
 
 export const Update = () => {
@@ -100,6 +102,7 @@ export const Update = () => {
           </Link>
         </div>
       </div>
+      <Chatbot />
     </div>
   )
 }
