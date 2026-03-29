@@ -5,11 +5,11 @@ import { ChatbotIcon } from "./ChatbotIcon"
 import { FiSend, FiChevronUp } from "react-icons/fi"
 
 export function Chatbot() {
-  const [ open, setOpen ] = useState(true)
+  const [ open, setOpen ] = useState(false)
   const [ messages, setMessages ] = useState([
     { 
-        type: "bot", 
-        text: "Hi, how can I help you today?" 
+      type: "bot", 
+      text: "Hi, how can I help you today?" 
     }
   ])
   const [ input, setInput ] = useState("")
@@ -24,14 +24,20 @@ export function Chatbot() {
 
     setMessages((prev) => [
       ...prev,
-      { type: "user", text: input }
+      { 
+        type: "user", 
+        text: input 
+      }
     ])
     setInput("")
 
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
-        { type: "bot", text: "Got it!" }
+        { 
+          type: "bot", 
+          text: "Got it!" 
+        }
       ])
     }, 800)
   }
@@ -47,15 +53,15 @@ export function Chatbot() {
           open ? "h-125" : "h-14"
         }`}
       >
-        <div className="bg-gray-800 text-white px-4 py-1 flex items-center justify-between rounded-t-2xl">
+        <div className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between rounded-t-2xl">
           <div className="flex items-center gap-2">
-            <ChatbotIcon className="text-white w-6 h-6" />
-            <h2 className="font-semibold text-white">Chatbot</h2>
+            <ChatbotIcon className="w-6 h-6 fill-current" />
+            <h2 className="font-semibold">Chatbot</h2>
           </div>
 
           <button onClick={() => setOpen(!open)}>
             <FiChevronUp
-              className={`text-white transition-transform duration-300 ${
+              className={`w-6 h-6 transition-transform duration-300 ${
                 open ? "rotate-180" : ""
               }`}
             />
@@ -100,12 +106,12 @@ export function Chatbot() {
                 placeholder="Message..."
                 value={ input }
                 onChange={ (e) => setInput(e.target.value) }
-                className="flex-1 border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-gray-400 transition"
+                className="flex-1 border border-gray-300 rounded-lg px-3 py-2 mt-3 outline-none focus:ring-2 focus:ring-gray-400 transition"
               />
 
               <button
                 type="submit"
-                className="bg-gray-800 text-white p-2 rounded-lg hover:bg-black transition"
+                className="bg-gray-800 mt-3 text-white p-2 rounded-lg hover:bg-black transition"
               >
                 <FiSend />
               </button>
