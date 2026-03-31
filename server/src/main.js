@@ -1,13 +1,10 @@
 import express from "express"
-import dotenv from "dotenv"
 import cors from "cors"
 
 import BookRoute from "./routes/BookRoute.js"
 
 import { ErrorHandler } from "./middleware/ErrorHandler.js"
 import { network } from "./utils/constants.js"
-
-dotenv.config()
 
 const app = express()
 
