@@ -36,7 +36,7 @@ export function Chatbot() {
         ...prev,
         { 
           type: "bot", 
-          text: "Loading....." 
+          text: "Thinking....." 
         }
       ])
     }, 800)
